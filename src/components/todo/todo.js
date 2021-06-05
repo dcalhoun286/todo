@@ -45,7 +45,34 @@ function Todo(props) {
 
   }, []);
 
+  // functions do not render like classes, they return
+
+  return (
+    <>
+      <header>
+        <h2>
+        There are {this.state.list.filter(item => !item.complete).length} Items To Complete
+        </h2>
+      </header>
+
+      <section className="todo">
+
+        <div>
+          <TodoForm handleSubmit={this.addItem} />
+        </div>
+
+        <div>
+          <TodoList
+            list={this.state.list}
+            handleComplete={this.toggleComplete}
+          />
+        </div>
+      </section>
+    </>
+  );
 }
+
+
 
 // class ToDo extends React.Component {
 
@@ -87,30 +114,30 @@ function Todo(props) {
 //   }
 
 //   render() {
-//     return (
-//       <>
-//         <header>
-//           <h2>
-//           There are {this.state.list.filter(item => !item.complete).length} Items To Complete
-//           </h2>
-//         </header>
+  //   return (
+  //     <>
+  //       <header>
+  //         <h2>
+  //         There are {this.state.list.filter(item => !item.complete).length} Items To Complete
+  //         </h2>
+  //       </header>
 
-//         <section className="todo">
+  //       <section className="todo">
 
-//           <div>
-//             <TodoForm handleSubmit={this.addItem} />
-//           </div>
+  //         <div>
+  //           <TodoForm handleSubmit={this.addItem} />
+  //         </div>
 
-//           <div>
-//             <TodoList
-//               list={this.state.list}
-//               handleComplete={this.toggleComplete}
-//             />
-//           </div>
-//         </section>
-//       </>
-//     );
-//   }
+  //         <div>
+  //           <TodoList
+  //             list={this.state.list}
+  //             handleComplete={this.toggleComplete}
+  //           />
+  //         </div>
+  //       </section>
+  //     </>
+  //   );
+  // }
 // }
 
 export default ToDo;
