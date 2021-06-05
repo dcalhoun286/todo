@@ -4,7 +4,7 @@ import TodoList from './list.js';
 
 import './todo.scss'; 
 
-function Todo(props) {
+function ToDo (props) {
 
   const[list, setList] = useState([]);
 
