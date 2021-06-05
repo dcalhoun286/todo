@@ -45,7 +45,7 @@ function Todo(props) {
 
   }, []);
 
-  // functions do not render like classes, they return
+  // function components do not render like classes, they just return
 
   return (
     <>
