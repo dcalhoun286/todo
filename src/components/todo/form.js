@@ -27,7 +27,7 @@ class TodoForm extends React.Component {
     this.setState({ item: {...this.state.item, [e.target.name]: e.target.value } });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     e.target.reset();
     this.props.handleSubmit(this.state.item);
