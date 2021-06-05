@@ -51,20 +51,20 @@ function Todo(props) {
     <>
       <header>
         <h2>
-        There are {this.state.list.filter(item => !item.complete).length} Items To Complete
+        There are {list.filter(item => !item.complete).length} Items To Complete
         </h2>
       </header>
 
       <section className="todo">
 
         <div>
-          <TodoForm handleSubmit={this.addItem} />
+          <TodoForm handleSubmit={addItem} />
         </div>
 
         <div>
           <TodoList
-            list={this.state.list}
-            handleComplete={this.toggleComplete}
+            list={list}
+            handleComplete={toggleComplete}
           />
         </div>
       </section>
