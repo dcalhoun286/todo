@@ -9,6 +9,7 @@ This is an application built with React. The user can update and maintain a simp
 ## Links
 
 - [Pull Request - Phase 1](https://github.com/dcalhoun286/todo/pull/1)
+- [Pull Request - Phase 2](https://github.com/dcalhoun286/todo/pull/2)
 - [Deployed Link](https://codesandbox.io/s/distracted-field-ez2nj)
 
 ## To Do List - Phase 1 Requirements
