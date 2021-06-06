@@ -40,11 +40,33 @@ _You've been provided ["starter code"](https://github.com/codefellows/seattle-ja
     - When clicked, toggle the "complete" status of the item
     - Items should be styled differently when complete/incomplete making their status visually obvious
 
-### UML
+### UML - Phase 1
 
 created with [diagrams.net](https://www.diagrams.net/blog/embed-diagrams-vscode)
 
-![TODO UML](./assets/todo-uml.drawio.png)
+![TODO UML](./assets/todo-uml-phase1.drawio.png)
+
+## To Do List - Phase 2 Requirements
+
+In Phase 2, we're going to connect the To Do Manager to a deployed API, backed by a database. The core functionality and stories do not change (reference Phase 1), but a new one has been added to note this shift in persistence.
+
+- As a user, I would like to be able to add, update, and delete To Do items
+- As a user, I would like my To Do Items to be permanently stored so that I can re-access them at any time, using any device
+
+Workflow changes:
+
+- On application start, display all of the to do items from the API/Database
+- When **adding** an item, issue a `POST` rquest to the API server
+- When **marking items complete**, issue a `PUT` request to the API server for the item
+- When **deleting** items, issue a `DELETE` request to the API server for the item
+
+### UML - Phase 2
+
+![TODO UML](./assets/todo-uml-phase2.drawio.png)
+
+## Resources and Collaborators
+
+- For Phase 2 of this project, I partnered with Taylor Thornton. **Resources we used for this phase are below**:
 
 ## Getting Started with Create React App
 
