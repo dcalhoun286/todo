@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useForm from '../hooks/form.js';
 
 function TodoForm (props) {
 
-  const[item, setItem] = useState({});
+  // const[item, setItem] = useState({});
 
-  const handleInputChange = e => {
-    setItem({ ...item, [e.target.name]: e.target.value });
-  };
+  const [handleInputChange, handleSubmit] = useForm(props.todoHandleSubmit);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    e.target.reset();
-    props.handleSubmit(item);
-    const reset = {};
-    setItem(reset);
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   e.target.reset();
+  //   props.handleSubmit(item);
+  //   const reset = {};
+  //   setItem(reset);
+  // }
 
   return (
     <>
@@ -36,7 +35,7 @@ function TodoForm (props) {
           <span>Assigned To</span>
           <input type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
         </label>
-        <button>Add Item</button>
+        <button type="submit">Add Item</button>
       </form>
     </>
   );

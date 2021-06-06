@@ -1,12 +1,20 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+// import useGetAll from '../get.js';
+// import { useGetData } from 'use-axios-react';
+// import { useGetCallback } from 'use=axios-react';
+import useAxios from 'axios-hooks';
 
 import './todo.scss'; 
 
 function ToDo (props) {
 
   const[list, setList] = useState([]);
+
+  const [{ data: getData }] = useAxios({url: 'https:api-js401.herokuapp.com/api/v1/todo', method: 'GET'});
+
+  console.log(getData);
 
   const addItem = item => {
 
@@ -31,19 +39,24 @@ function ToDo (props) {
 
   // simulate componentDidUpdate ... every render this is going to happen if the data in list has changed
 
-  useEffect(() => {
-    console.log('this runs every time: ToDo component rendered itself');
-    let updatedList = [
-      { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A'},
-      { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A'},
-      { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B'},
-      { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C'},
-      { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B'},
-    ];
+  // useEffect(() => {
+  //   const [data] = useGetData('https:api-js401.herokuapp.com/api.v1/todo');
+  //   setList(data);
+  // }, []);
 
-    setList(updatedList);
+  // useEffect(() => {
+  //   console.log('this runs every time: ToDo component rendered itself');
+  //   let updatedList = [
+  //     { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A'},
+  //     { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A'},
+  //     { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B'},
+  //     { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C'},
+  //     { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B'},
+  //   ];
 
-  }, []);
+    // setList(updatedList);
+
+  // }, []);
 
   // function components do not render like classes, they just return
 
@@ -58,7 +71,7 @@ function ToDo (props) {
       <section className="todo">
 
         <div>
-          <TodoForm handleSubmit={addItem} />
+          <TodoForm todoHandleSubmit={addItem} />
         </div>
 
         <div>
