@@ -2,8 +2,15 @@ import React from 'react';
 
 function TodoList (props) {
 
-  return (
+  // props.list.forEach(item => {
+  //   // console.log('is item complete?', item.complete);
+  //   // console.log('item id', item._id);
+  //   console.log('trying to render shit', item);
+  // });
+ 
+  // console.log('state being rendered', props.list);
 
+  return (
     <ul>
       {props.list.map(item => (
 

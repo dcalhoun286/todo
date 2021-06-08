@@ -5,6 +5,7 @@ import TodoList from './list.js';
 // import { useGetData } from 'use-axios-react';
 // import { useGetCallback } from 'use=axios-react';
 import useAxios from 'axios-hooks';
+import axios from 'axios';
 
 import './todo.scss'; 
 
@@ -12,37 +13,54 @@ function ToDo (props) {
 
   const[list, setList] = useState([]);
 
-  const [{ data: getData }] = useAxios({url: 'https:api-js401.herokuapp.com/api/v1/todo', method: 'GET'});
+  const [{data, loading, error}, refetch] = useAxios({url: 'https://api-js401.herokuapp.com/api/v1/todo', method: 'GET'});
 
-  console.log(getData);
+  console.log(data);
 
-  const addItem = item => {
+  const addItem = async item => {
+    // this code below should look similar to what toggleComplete is, making an HTTP request to the server when trying to add an item (POST)
 
-    item._id = Math.random();
+    console.log('the item we want to post to the api', item);
+
+    // item._id = Math.random();
+
+    let url = 'https://api-js401.herokuapp.com/api/v1/todo';
     item.complete = false;
-    setList([...list, item]);
 
+    let addedItem = await axios.post(url, item);
+    // item._id = addedItem.data._id;
+    console.log('added item:', item);
+    let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
+    setList(updatedList);
+    // refetch();
   }
 
-  const toggleComplete = id => {
+  const toggleComplete = async id => {
 
-    let item = list.filter(i => i._id == id)[0] || {};
+    let item = list.filter(i => i._id === id)[0] || {};
 
     if (item._id) {
 
       item.complete = !item.complete;
-      let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList([updatedList]);
 
+      let url = `https://api-js401.herokuapp.com/api/v1/todo/${id}`;
+      let changedItem = await axios.put(url, item);
+      console.log(changedItem);
+      let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
+      setList(updatedList);
+      refetch();
     }
   }
 
-  // simulate componentDidUpdate ... every render this is going to happen if the data in list has changed
+  // simulate componentDidUpdate ... every render this is going to happen if the data  list has changed
 
-  // useEffect(() => {
-  //   const [data] = useGetData('https:api-js401.herokuapp.com/api.v1/todo');
-  //   setList(data);
-  // }, []);
+  useEffect(() => {
+    // const [data] = useGetData('https:api-js401.herokuapp.com/api.v1/todo');
+    // console.log(data);
+    if (!loading) {
+      setList(data.results);
+    }
+  }, [loading, data]);
 
   // useEffect(() => {
   //   console.log('this runs every time: ToDo component rendered itself');
