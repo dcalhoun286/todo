@@ -9,12 +9,4 @@ function useGetAll () {
   return data;
 }
 
-
-
-
-// const getAll = () =>{
-//   const [data] = useGetData("https:api-js401.herokuapp.com/api/v1/todo");
-//   setList(data);
-// }
-
 export default useGetAll;

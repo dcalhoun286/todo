@@ -12,11 +12,10 @@ const useForm = (callback) => {
   };
 
   const handleSubmit = (e) => {
+  
     e.preventDefault();
-    // e.target.reset();
-    // props.handleSubmit(item);
-    // const clearcache = {};
     callback(values);
+  
   };
 
   return [handleInputChange, handleSubmit, values];
