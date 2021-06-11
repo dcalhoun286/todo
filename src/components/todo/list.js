@@ -1,45 +1,22 @@
 import React from 'react';
 
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
+
 function TodoList (props) {
 
   return (
 
-    <ul>
-      {props.list.map(item => (
-
-        <li
-          className={`complete-${item.complete.toString()}`}
-          key={item._id}
-        >
-          <span onClick={() => props.handleComplete(item._id)}>
-            {item.text}
-          </span>
-        </li>
-      ))}
-    </ul>
+    <ListGroup as="ul">
+      {props.list.map(item => 
+        <ListGroupItem as="li" className={`complete-${item.complete.toString()}`} key={item._id} onClick={() => props.handleComplete(item._id)}>{item.text}
+          <span onClick={() => props.handleDelete(item._id)}>{`DELETE`}</span>
+        </ListGroupItem>
+      )}
+    </ListGroup>
 
   );
 
 }
-
-// class TodoList extends React.Component {
-
-//   render() {
-//     return (
-//       <ul>
-//         {this.props.list.map(item => (
-//           <li
-//             className={`complete-${item.complete.toString()}`}
-//             key={item._id}
-//           >
-//             <span onClick={() => this.props.handleComplete(item._id)}>
-//               {item.text}
-//             </span>
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//   }
-// }
 
 export default TodoList;
