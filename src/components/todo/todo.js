@@ -18,8 +18,8 @@ function ToDo (props) {
     item.complete = false;
 
     await axios.post(url, item);
-    let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
-    setList(updatedList);
+    // let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
+    // setList(updatedList);
     refetch();
   }
 
@@ -32,9 +32,9 @@ function ToDo (props) {
       item.complete = !item.complete;
 
       let url = `https://api-js401.herokuapp.com/api/v1/todo/${id}`;
-      let changedItem = await axios.put(url, item);
-      let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(updatedList);
+      await axios.put(url, item);
+      // let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
+      // setList(updatedList);
       refetch();
     }
   }
@@ -46,9 +46,9 @@ function ToDo (props) {
     if (item._id) {
 
       let url = `https://api-js401.herokuapp.com/api/v1/todo/${id}`;
-      let deletedItem = await axios.delete(url, item);
-      let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(updatedList);
+      await axios.delete(url, item);
+      // let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
+      // setList(updatedList);
       refetch();
     }
   }
