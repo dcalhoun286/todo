@@ -10,6 +10,7 @@ This is an application built with React. The user can update and maintain a simp
 
 - [Pull Request - Phase 1](https://github.com/dcalhoun286/todo/pull/1)
 - [Pull Request - Phase 2](https://github.com/dcalhoun286/todo/pull/2)
+- [Pull Request - Phase 3](https://github.com/dcalhoun286/todo/pull/3)
 - [Deployed Link](https://codesandbox.io/s/distracted-field-ez2nj)
 
 ## To Do List - Phase 1 Requirements
@@ -65,9 +66,13 @@ Workflow changes:
 
 ![TODO UML](./assets/todo-uml-phase2.drawio.png)
 
+## To Do List - Phase 3
+
+### UML - Phase 3
+
 ## Resources and Collaborators
 
-- For Phase 2 of this project, I partnered with Taylor Thornton. **Resources we used for this phase are below**:
+- For Phases 2 and 3 of this project, I partnered with Taylor Thornton. **Resources we used for this phase are below**:
 
 ## Getting Started with Create React App
 
